@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .centered {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .nyan-cat {
+            position: absolute;
+            top: 50px;
+            left: -100px;
+            animation: nyanCatRun 1s linear infinite;
+        }
+        @keyframes nyanCatRun {
+            0% { left: -100px; }
+            100% { left: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div id="loginPage">
+        <h2>Login</h2>
+        <form id="loginForm" action="/login" method="post" onsubmit="return validateForm()">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <input type="submit" value="Login">
+            </div>
+        </form>
+    </div>
+
+    <div id="loggedInPage" class="hidden">
+        <h2>Admin Account Logged In</h2>
+        <div class="nyan-cat">
+            <img src="https://media.giphy.com/media/11StaZ9Lj74oCY/giphy.gif" alt="Nyan Cat">
+        </div>
+        <div class="centered">
+            <h3><a href="https://discord.gg/9e7ZbmtRNW" target="_blank">Discord Server</a></h3>
+            <p>Click to join the Discord server.</p>
+        </div>
+        <div class="centered">
+            <h3><a href="https://discord.gg/runesoftware" target="_blank">Rune Discord</a></h3>
+            <p>Click to join the Rune Discord server.</p>
+        </div>
+        <div class="centered">
+            <h3><a href="https://www.mediafire.com/file/86vqzl7lyjs1rfg/antivirus.py/file" target="_blank">School Project</a></h3>
+            <p>Click to download the school project file.</p>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            if (username === 'Admin_10059' && password === 'Adminlogin12583') {
+                document.getElementById('loginPage').classList.add('hidden');
+                document.getElementById('loggedInPage').classList.remove('hidden');
+                return false; // Prevent form submission
+            } else {
+                alert('Invalid username or password');
+                return false; // Prevent form submission
+            }
+        }
+    </script>
+</body>
+</html>
